@@ -35,7 +35,7 @@ clbot.on('ready', () =>{
 clbot.on('guildMemberAdd', member =>{
 	let guild = member.guild;
 	var userCount = member.guild.memberCount;
-	const channel = member.guild.channels.find(channel => channel.name === "haupts-emote-paradise");
+	const channel = member.guild.channels.find(channel => channel.name === "united-antichess-security-council");
 	if(!channel) return;
 	channel.send(`A new Movag appeared, ${member} this is already Movag no. ${userCount}!`)
 
@@ -48,7 +48,7 @@ clbot.on('message', message => {
 
 	const wordToReactTo1 = "movag";
 	const wordToReactTo2 = "metin";
-	const wordToReactTo3 = "you";
+	const wordToReactTo3 = " you ";
 
 	// bot reacts/replies to messages containing the words above
 		if(message.content.toLowerCase().includes(wordToReactTo1)){
