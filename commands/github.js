@@ -7,7 +7,7 @@ module.exports = {
 
     const Discord = require('discord.js');
     const embed = new Discord.RichEmbed()
-        .setAuthor('Click me hard', 'https://cdn.discordapp.com/emojis/452507095884103690.png', 'https://github.com/HauptschuIe/hauptschulebotdiscord')
+        .setAuthor('Click me hard', 'https://cdn.discordapp.com/emojis/452507095884103690.png', 'https://github.com/HauptschuIe/HauptschuleDiscordBot')
         .setColor(0xFFFFFF)
 
         message.channel.send(embed);
