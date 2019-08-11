@@ -48,7 +48,6 @@ clbot.on('message', message => {
 
 	const wordToReactTo1 = "movag";
 	const wordToReactTo2 = "metin";
-	const wordToReactTo3 = "you ";
 
 	// bot reacts/replies to messages containing the words above
 		if(message.content.toLowerCase().includes(wordToReactTo1)){
@@ -56,9 +55,6 @@ clbot.on('message', message => {
 			}
 		if(message.content.toLowerCase().includes(wordToReactTo2)){
 			message.react(clbot.emojis.get("518878496546881557"));
-			}
-		if(message.content.toLowerCase().includes(wordToReactTo3)){
-			message.reply('no u');
 			}
 
 	if (!message.content.startsWith(PREFIX)) return;
