@@ -10,6 +10,7 @@ const clbot = new Discord.Client();
 const token = process.env.token;
 
 const PREFIX = '!';
+const PogChamp = message.guild.emojis.find(emoji => emoji.name === "PogChamp");
 
 clbot.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -37,7 +38,7 @@ clbot.on('guildMemberAdd', member =>{
 	var userCount = member.guild.memberCount;
 	const channel = member.guild.channels.find(channel => channel.name === "united-antichess-security-council");
 	if(!channel) return;
-	channel.send(`A new Movag appeared, ${member} this is already Movag no. ${userCount}!`)
+	channel.send(`A new Movag appeared, ${member} this is already Movag no. ${userCount}! ${PogChamp}`)
 
 });
 
