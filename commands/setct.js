@@ -4,7 +4,7 @@ module.exports = {
 
 	execute(message, args) {
 
-    message.channel.setTopic(agrs[1]);
+    message.channel.setTopic(args[1]);
     return message.channel.send('Channel topic has been changed to ' + args[1]);
 
 	},
