@@ -22,8 +22,8 @@ module.exports = {
       return message.reply('you do not have permissions to prune messages.');
         }
 
-    if(!topic){
-      message.channel.setTopic("").catch(err => {
+    if(!args[0]){
+      message.channel.setTopic(null).catch(err => {
   			console.error(err);
       });
       return message.channel.send('Channel topic has been removed');
