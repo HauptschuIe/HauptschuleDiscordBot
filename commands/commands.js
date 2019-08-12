@@ -13,6 +13,7 @@ module.exports = {
     		.addField('!avatar @user', 'fetches the tagged users avatar')
         .addField('!prune x', 'prunes the last x messages (mod only)')
 				.addField('!github', 'hauptschulebot on Github')
+				.addField('!setct', 'Set channel topic, remove channel topic w/o argument (mod only)')
     		.setColor(0xFFFFFF)
     		.setThumbnail(message.guild.iconURL)
 
