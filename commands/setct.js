@@ -5,10 +5,10 @@ module.exports = {
   execute(message, args) {
 
     if(!args[1]){
-      const topic = "";
+      const topic = " ";
 
     }else{
-      const topic = args[1];
+      const topic = String(args[0]);
     }
 
     message.channel.setTopic(topic)
