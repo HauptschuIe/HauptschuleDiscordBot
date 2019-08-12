@@ -8,7 +8,6 @@ module.exports = {
       const topic = " ";
       message.channel.setTopic('Uff')
       message.channel.send(topic);
-      .catch(console.error);
     }else{
       const topic = String(args[0]);
       message.channel.setTopic(topic)
