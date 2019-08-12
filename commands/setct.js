@@ -23,7 +23,7 @@ module.exports = {
         }
 
     if(!topic){
-      message.channel.setTopic(null).catch(err => {
+      message.channel.setTopic("").catch(err => {
   			console.error(err);
       });
       return message.channel.send('Channel topic has been removed');
