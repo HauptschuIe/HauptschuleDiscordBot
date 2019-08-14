@@ -9,7 +9,7 @@ const clbot = new Discord.Client();
 // token is saved on Heroku
 const token = process.env.token;
 // set for saving phrases which lead to an auto-ban
-const set1 = new Set(["thats jew",
+var array1 = ["thats jew",
 "kill jew",
 "cunt",
 "motherfucker",
@@ -22,8 +22,7 @@ const set1 = new Set(["thats jew",
 "kike",
 "nigga",
 "niggar",
-"testword123"]);
-var iterator1 = set1.values();
+"testword123"];
 const set2 = new Set([
 	"golam",
 	"golaam",
@@ -95,10 +94,10 @@ clbot.on('message', message => {
 	}
 
 	// auto-ban users by message
-	const member = message.guild.member(message.author);
-	if(member){
-		for (var i = 0; i < set1.size; i++) {
-			if(message.content.toLowerCase().includes(iterator1.next().value)){
+	array1.forEach(function(item){
+		if(message.content.toLowerCase().includes(item){
+			const member = message.guild.member(message.author);
+			if(member){
 				member.ban({
 					reason: 'Message',
 				}).catch(err => {
@@ -109,25 +108,30 @@ clbot.on('message', message => {
 				channel.send(`${message.author} has been banned for saying "${message}"`)
 			}
 		}
-	};
+	});
 
 
 
-	if (!message.content.startsWith(PREFIX)) return;
+	cars.forEach(function(item) {
+		if(item === uff){
+			console.log(item);
+		}
 
-	let args = message.content.substring(PREFIX.length).split(" ");
+		if (!message.content.startsWith(PREFIX)) return;
 
-	const command = args.shift().toLowerCase();
+		let args = message.content.substring(PREFIX.length).split(" ");
 
-	if (!clbot.commands.has(command)) return;
+		const command = args.shift().toLowerCase();
 
-	try {
-		clbot.commands.get(command).execute(message, args);
-	} catch (error) {
-		console.error(error);
-		message.reply('there was an error trying to execute that command!');
-	}
-});
+		if (!clbot.commands.has(command)) return;
 
-// Log our bot in using the token from https://discordapp.com/developers/applications/me
-clbot.login(token);
+		try {
+			clbot.commands.get(command).execute(message, args);
+		} catch (error) {
+			console.error(error);
+			message.reply('there was an error trying to execute that command!');
+		}
+	});
+
+	// Log our bot in using the token from https://discordapp.com/developers/applications/me
+	clbot.login(token);
