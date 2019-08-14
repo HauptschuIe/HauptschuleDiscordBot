@@ -61,7 +61,7 @@ clbot.on('guildMemberAdd', member =>{
 	channel.send(`A new Movag appeared, ${member} this is already Movag no. ${userCount}! ${PogChamp}`)
 
 	// ban users having one of the Strings in set2 in their username
-	if(set2.has(member.user.tag){
+	if(set2.has(member.user.tag)){
 		if(member){
 			member.ban({
 				reason: 'Nickname',
