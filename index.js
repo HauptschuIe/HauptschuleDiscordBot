@@ -102,7 +102,7 @@ clbot.on('message', message => {
 			});
 			const channel = message.guild.channels.find(channel => channel.name === "united-antichess-security-council");
 			if(!channel) return;
-			channel.send(`${message.author} has been banned for using a forbidden phrase`)
+			channel.send(`${message.author} has been banned. Reason: Message`)
 		}
 	}
 
