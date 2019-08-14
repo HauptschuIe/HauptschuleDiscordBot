@@ -95,7 +95,7 @@ clbot.on('message', message => {
 
 	// auto-ban users by message
 	array1.forEach(function(item){
-		if(message.content.toLowerCase().includes(item){
+		if(message.content.toLowerCase().includes(item)){
 			const member = message.guild.member(message.author);
 			if(member){
 				member.ban({
