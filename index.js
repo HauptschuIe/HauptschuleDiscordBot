@@ -9,7 +9,7 @@ const clbot = new Discord.Client();
 // token is saved on Heroku
 const token = process.env.token;
 // set for saving phrases which lead to an auto-ban
-const set1 = new Set(["thats jew",
+const set1 = new Set(["thats jew", "testword"
 "kill jew",
 "cunt",
 "motherfucker",
@@ -66,7 +66,7 @@ clbot.on('message', message => {
 	}
 	if(message.content.toLowerCase().includes(wordToReactTo2)){
 		message.react(clbot.emojis.get("518878496546881557"));
-message.channel.send(set[0]);
+message.channel.send(set[0].toString());
 	}
 	// auto-ban users by message
 	var i;
