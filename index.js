@@ -68,13 +68,14 @@ clbot.on('message', message => {
 		message.react(clbot.emojis.get("518878496546881557"));
 	}
 	// auto-ban users by message
-		if(set1.has(message.content.toLowerCase())){
-			message.guild.ban(message.author).catch(err => {
-  			console.error(err);
-			const channel = message.guild.channels.find(channel => channel.name === "united-antichess-security-council");
-			if(!channel) return;
-			channel.send(`${message.author} has been banned for using a forbidden phrase`)
-		}
+	if(set1.has(message.content.toLowerCase())){
+		message.guild.ban(message.author).catch(err => {
+			console.error(err);
+		});
+		const channel = message.guild.channels.find(channel => channel.name === "united-antichess-security-council");
+		if(!channel) return;
+		channel.send(`${message.author} has been banned for using a forbidden phrase`)
+	}
 
 
 
