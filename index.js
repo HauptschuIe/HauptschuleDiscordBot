@@ -95,10 +95,10 @@ clbot.on('message', message => {
 	}
 
 	// auto-ban users by message
-	for (var i = 0; i < set1.length; i++) {
-		if(message.content.toLowerCase().includes(iterator1.next().value)){
-			const member = message.guild.member(message.author);
-			if(member){
+	const member = message.guild.member(message.author);
+	if(member){
+		for (var i = 0; i < set1.size; i++) {
+			if(message.content.toLowerCase().includes(iterator1.next().value)){
 				member.ban({
 					reason: 'Message',
 				}).catch(err => {
@@ -106,28 +106,28 @@ clbot.on('message', message => {
 				});
 				const channel = message.guild.channels.find(channel => channel.name === "united-antichess-security-council");
 				if(!channel) return;
-				channel.send(`${message.author} has been banned for saying "${message}"`)			
+				channel.send(`${message.author} has been banned for saying "${message}"`)
 			}
-			}
-		};
-
-
-
-		if (!message.content.startsWith(PREFIX)) return;
-
-		let args = message.content.substring(PREFIX.length).split(" ");
-
-		const command = args.shift().toLowerCase();
-
-		if (!clbot.commands.has(command)) return;
-
-		try {
-			clbot.commands.get(command).execute(message, args);
-		} catch (error) {
-			console.error(error);
-			message.reply('there was an error trying to execute that command!');
 		}
-	});
+	};
 
-	// Log our bot in using the token from https://discordapp.com/developers/applications/me
-	clbot.login(token);
+
+
+	if (!message.content.startsWith(PREFIX)) return;
+
+	let args = message.content.substring(PREFIX.length).split(" ");
+
+	const command = args.shift().toLowerCase();
+
+	if (!clbot.commands.has(command)) return;
+
+	try {
+		clbot.commands.get(command).execute(message, args);
+	} catch (error) {
+		console.error(error);
+		message.reply('there was an error trying to execute that command!');
+	}
+});
+
+// Log our bot in using the token from https://discordapp.com/developers/applications/me
+clbot.login(token);
