@@ -8,6 +8,17 @@ const Discord = require('discord.js');
 const clbot = new Discord.Client();
 // token is saved on Heroku
 const token = process.env.token;
+// set for saving phrases which lead to an auto-ban
+const set1 = new Set(["thats jew",
+"kill jew",
+"cunt",
+"motherfucker",
+"jew kill",
+"real golam",
+"real golaam",
+"real golaaam",
+"nigger",
+"niggger"]);
 
 const PREFIX = '!';
 
@@ -38,41 +49,50 @@ clbot.on('guildMemberAdd', member =>{
 	var userCount = member.guild.memberCount;
 	const channel = member.guild.channels.find(channel => channel.name === "united-antichess-security-council");
 	if(!channel) return;
-	channel.send(`A new Movag appeared, ${member} this is already Movag no. ${userCount}! ${PogChamp}`)
+	if(member
+		channel.send(`A new Movag appeared, ${member} this is already Movag no. ${userCount}! ${PogChamp}`)
+		// auto-ban users by username
+		// tbd
+	});
 
-});
 
+	clbot.on('message', message => {
 
-clbot.on('message', message => {
+		if (message.author.bot) return;
 
-	if (message.author.bot) return;
+		const wordToReactTo1 = "movag";
+		const wordToReactTo2 = "metin";
 
-	const wordToReactTo1 = "movag";
-	const wordToReactTo2 = "metin";
-
-	// bot reacts/replies to messages containing the words above
+		// bot reacts/replies to messages containing the words above
 		if(message.content.toLowerCase().includes(wordToReactTo1)){
 			message.react(clbot.emojis.get("555480363351146530"));
-			}
+		}
 		if(message.content.toLowerCase().includes(wordToReactTo2)){
 			message.react(clbot.emojis.get("518878496546881557"));
+		}
+		// auto-ban users by message
+		for (i = 0; i < set1.size() ; i++) {
+			if(message.content.toLowerCase().includes(set1[i])){
+				message.guild.ban(message.author);
 			}
+		}
 
-	if (!message.content.startsWith(PREFIX)) return;
 
-let args = message.content.substring(PREFIX.length).split(" ");
+		if (!message.content.startsWith(PREFIX)) return;
 
-	const command = args.shift().toLowerCase();
+		let args = message.content.substring(PREFIX.length).split(" ");
 
-	if (!clbot.commands.has(command)) return;
+		const command = args.shift().toLowerCase();
 
-	try {
-		clbot.commands.get(command).execute(message, args);
-	} catch (error) {
-		console.error(error);
-		message.reply('there was an error trying to execute that command!');
-	}
-});
+		if (!clbot.commands.has(command)) return;
 
-// Log our bot in using the token from https://discordapp.com/developers/applications/me
-clbot.login(token);
+		try {
+			clbot.commands.get(command).execute(message, args);
+		} catch (error) {
+			console.error(error);
+			message.reply('there was an error trying to execute that command!');
+		}
+	});
+
+	// Log our bot in using the token from https://discordapp.com/developers/applications/me
+	clbot.login(token);
