@@ -21,7 +21,8 @@ const set1 = new Set(["thats jew",
 "niggger",
 "kike",
 "nigga",
-"niggar"]);
+"niggar",
+"testword123"]);
 const set2 = new Set([
 	"golam",
 	"golaam",
@@ -102,7 +103,7 @@ clbot.on('message', message => {
 			});
 			const channel = message.guild.channels.find(channel => channel.name === "united-antichess-security-council");
 			if(!channel) return;
-			channel.send(`${message.author} has been banned. Reason: Message`)
+			channel.send(`${message.author} has been banned for saying "${message}"`)
 		}
 	}
 
