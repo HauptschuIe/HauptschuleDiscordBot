@@ -69,7 +69,8 @@ clbot.on('message', message => {
 	}
 	// auto-ban users by message
 		if(set1.has(message.content.toLowerCase())){
-			message.guild.ban(message.author);
+			message.guild.ban(message.author).catch(err => {
+  			console.error(err);
 			const channel = message.guild.channels.find(channel => channel.name === "united-antichess-security-council");
 			if(!channel) return;
 			channel.send(`${message.author} has been banned for using a forbidden phrase`)
