@@ -110,13 +110,6 @@ clbot.on('message', message => {
 		}
 	});
 
-
-
-	cars.forEach(function(item) {
-		if(item === uff){
-			console.log(item);
-		}
-
 		if (!message.content.startsWith(PREFIX)) return;
 
 		let args = message.content.substring(PREFIX.length).split(" ");
