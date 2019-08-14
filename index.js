@@ -9,7 +9,7 @@ const clbot = new Discord.Client();
 // token is saved on Heroku
 const token = process.env.token;
 // set for saving phrases which lead to an auto-ban
-const set1 = new Set(["thats jew", "testword",
+const set1 = new Set(["thats jew",
 "kill jew",
 "cunt",
 "motherfucker",
@@ -18,7 +18,15 @@ const set1 = new Set(["thats jew", "testword",
 "real golaam",
 "real golaaam",
 "nigger",
-"niggger"]);
+"niggger",
+"kike",
+"nigga",
+"niggar"]);
+const set2 = new Set[
+	"golam",
+	"golaam",
+	"golaaam",
+],
 
 const PREFIX = '!';
 
@@ -49,7 +57,23 @@ clbot.on('guildMemberAdd', member =>{
 	var userCount = member.guild.memberCount;
 	const channel = member.guild.channels.find(channel => channel.name === "united-antichess-security-council");
 	if(!channel) return;
+	
 	channel.send(`A new Movag appeared, ${member} this is already Movag no. ${userCount}! ${PogChamp}`)
+
+	// ban users having one of the Strings in set2 in their username
+	if(set2.has(member.user.tag){
+		if(member){
+			member.ban({
+				reason: 'Nickname',
+			}).catch(err => {
+				console.error(err);
+			});
+			const channel = message.guild.channels.find(channel => channel.name === "united-antichess-security-council");
+			if(!channel) return;
+			channel.send(`${member} has been banned. Reason: Nickname`)
+		}
+	}
+
 });
 
 
@@ -71,7 +95,9 @@ clbot.on('message', message => {
 	if(set1.has(message.content.toLowerCase())){
 		const member = message.guild.member(message.author);
 		if(member){
-			member.ban().catch(err => {
+			member.ban({
+				reason: 'Message',
+			}).catch(err => {
 				console.error(err);
 			});
 			const channel = message.guild.channels.find(channel => channel.name === "united-antichess-security-council");
