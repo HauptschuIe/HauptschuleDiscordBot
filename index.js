@@ -49,10 +49,7 @@ clbot.on('guildMemberAdd', member =>{
 	var userCount = member.guild.memberCount;
 	const channel = member.guild.channels.find(channel => channel.name === "united-antichess-security-council");
 	if(!channel) return;
-	if(member
 		channel.send(`A new Movag appeared, ${member} this is already Movag no. ${userCount}! ${PogChamp}`)
-		// auto-ban users by username
-		// tbd
 	});
 
 
