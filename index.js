@@ -22,11 +22,11 @@ const set1 = new Set(["thats jew",
 "kike",
 "nigga",
 "niggar"]);
-const set2 = new Set[
+const set2 = new Set([
 	"golam",
 	"golaam",
 	"golaaam",
-],
+]);
 
 const PREFIX = '!';
 
@@ -57,7 +57,7 @@ clbot.on('guildMemberAdd', member =>{
 	var userCount = member.guild.memberCount;
 	const channel = member.guild.channels.find(channel => channel.name === "united-antichess-security-council");
 	if(!channel) return;
-	
+
 	channel.send(`A new Movag appeared, ${member} this is already Movag no. ${userCount}! ${PogChamp}`)
 
 	// ban users having one of the Strings in set2 in their username
