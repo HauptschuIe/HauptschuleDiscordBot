@@ -66,18 +66,15 @@ clbot.on('message', message => {
 	}
 	if(message.content.toLowerCase().includes(wordToReactTo2)){
 		message.react(clbot.emojis.get("518878496546881557"));
-message.channel.send(set[1].toString());
 	}
 	// auto-ban users by message
-	var i;
-	for (i = 0; i < set1.length; i++) {
-		if(message.content.toLowerCase().includes(set1[i])){
+		if(set1.has(message.content.toLowerCase()){
 			message.guild.ban(message.author);
 			const channel = message.guild.channels.find(channel => channel.name === "united-antichess-security-council");
 			if(!channel) return;
 			channel.send(`${message.author} has been banned for using a forbidden phrase`)
 		}
-	}
+
 
 
 	if (!message.content.startsWith(PREFIX)) return;
