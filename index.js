@@ -11,7 +11,7 @@ const token = process.env.token;
 // set for saving phrases which lead to an auto-ban
 var array1 = ["thats jew",
 "kill jew",
-"jew kill",	      
+"jew kill",
 "cunt",
 "motherfucker",
 "jew kill",
@@ -23,7 +23,7 @@ var array1 = ["thats jew",
 "kike",
 "nigga",
 "niggar",
-"jewkiller",	      
+"jewkiller",
 "testword123"];
 const set2 = new Set([
 	"golam",
@@ -108,9 +108,9 @@ clbot.on('message', message => {
 			msg.delete(10000)
 
 		})
-		.catch(error) {
-			console.error(error);
-		}
+		.catch(err => {
+			console.error(err);
+		});
 	}
 
 	channel.send(`${message.author} has been banned for saying "${message}"`)
