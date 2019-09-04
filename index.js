@@ -97,7 +97,7 @@ clbot.on('message', message => {
 
 	// delete messages in #story containing more than one word
 	const channel = message.guild.channels.find(channel => channel.name === "story");
-	const cmonBruh = member.guild.emojis.find(emoji => emoji.name === "cmonBruh");
+	const cmonBruh = message.guild.emojis.find(emoji => emoji.name === "cmonBruh");
 	if(!channel) return;
 	if(message.content.includes(" ") || message.length > 25){
 		message.channel.bulkDelete(1, true).catch(err => {
