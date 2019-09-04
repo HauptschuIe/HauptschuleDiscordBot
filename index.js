@@ -11,6 +11,7 @@ const token = process.env.token;
 // set for saving phrases which lead to an auto-ban
 var array1 = ["thats jew",
 "kill jew",
+"jew kill",	      
 "cunt",
 "motherfucker",
 "jew kill",
@@ -22,6 +23,7 @@ var array1 = ["thats jew",
 "kike",
 "nigga",
 "niggar",
+"jewkiller",	      
 "testword123"];
 const set2 = new Set([
 	"golam",
