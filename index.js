@@ -93,6 +93,26 @@ clbot.on('message', message => {
 		message.react(clbot.emojis.get("518878496546881557"));
 	}
 
+	// delete messages in #story containing more than one word
+	const channel = message.guild.channels.find(channel => channel.name === "story");
+	const cmonBruh = member.guild.emojis.find(emoji => emoji.name === "cmonBruh");
+	if(!channel) return;
+	if(message.content.includes(" ") || message.length > 25){
+		message.channel.bulkDelete(1, true).catch(err => {
+			console.error(err);
+		});
+		message.reply(`Invalid message ${cmonBruh}`)
+		.then(msg => {
+			msg.delete(10000)
+
+		})
+		.catch(error) {
+			console.error(error);
+		}
+	}
+
+	channel.send(`${message.author} has been banned for saying "${message}"`)
+
 	// auto-ban users by message
 	array1.forEach(function(item){
 		if(message.content.toLowerCase().includes(item)){
