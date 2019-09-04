@@ -113,8 +113,6 @@ clbot.on('message', message => {
 		});
 	}
 
-	channel.send(`${message.author} has been banned for saying "${message}"`)
-
 	// auto-ban users by message
 	array1.forEach(function(item){
 		if(message.content.toLowerCase().includes(item)){
