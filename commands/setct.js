@@ -9,17 +9,17 @@ module.exports = {
   execute(message, args) {
 
     const cmonBruh = message.guild.emojis.find(emoji => emoji.name === "cmonBruh");
-    const topic = String(args[0]);
+    const topic = message.content;
 
     if (!message.member.roles.find(r => r.name === "Mods") && userUsedCommandRecently.has(message.author.id)){
-      return message.reply(`you still do not have permissions to prune messages ${cmonBruh}`);
+      return message.reply(`you still do not have permissions to change the channel topic ${cmonBruh}`);
 
     } else if (!message.member.roles.find(r => r.name === "Mods") && !userUsedCommandRecently.has(message.author.id)) {
       userUsedCommandRecently.add(message.author.id)
       setTimeout(() => {
       userUsedCommandRecently.delete(message.author.id)
       }, 30000);
-      return message.reply('you do not have permissions to prune messages.');
+      return message.reply('you do not have permissions to change the channel topic.');
         }
 
     if(!args[0]){
