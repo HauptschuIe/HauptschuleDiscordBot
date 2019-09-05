@@ -95,11 +95,6 @@ clbot.on('message', message => {
 		message.react(clbot.emojis.get("518878496546881557"));
 	}
 
-
-	const channel = client.channels.find('name', channelName)
-	channel.send(message)
-
-
 	// delete messages in #story containing more than one word
 	const StoryChannel = message.guild.channels.get("id", 453514739595739136)
 	const cmonBruh = message.guild.emojis.find(emoji => emoji.name === "cmonBruh");
