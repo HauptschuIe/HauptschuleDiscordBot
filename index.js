@@ -96,25 +96,25 @@ clbot.on('message', message => {
 	}
 
 	// delete messages in #story containing more than one word
-	// const StoryChannel = message.guild.channels.find(channel => channel.name === "story");
-	// const cmonBruh = message.guild.emojis.find(emoji => emoji.name === "cmonBruh");
-	// if(!StoryChannel) {
-	// 	return;
-	// }else{
-	// 	if(message.content.includes(" ") || message.content.length > 20){
-	// 		message.channel.bulkDelete(1, true).catch(err => {
-	// 			console.error(err);
-	// 		});
-	// 		message.reply(`Invalid message ${cmonBruh}`)
-	// 		.then(msg => {
-	// 			msg.delete(10000)
-	//
-	// 		})
-	// 		.catch(err => {
-	// 			console.error(err);
-	// 		});
-	// 	}
-	// }
+	const StoryChannel = message.guild.channels.find(channel => channel.name === "story");
+	const cmonBruh = message.guild.emojis.find(emoji => emoji.name === "cmonBruh");
+	if(message.channel === StoryChannel) {
+		return;
+	}else{
+		if(message.content.includes(" ") || message.content.length > 20){
+			message.channel.bulkDelete(1, true).catch(err => {
+				console.error(err);
+			});
+			message.reply(`Invalid message ${cmonBruh}`)
+			.then(msg => {
+				msg.delete(10000)
+
+			})
+			.catch(err => {
+				console.error(err);
+			});
+		}
+	}
 
 	// auto-ban users by message
 	array1.forEach(function(item){
