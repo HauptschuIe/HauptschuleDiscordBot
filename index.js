@@ -82,6 +82,41 @@ clbot.on('guildMemberAdd', member =>{
 
 clbot.on('message', message => {
 
+	if (message.author.bot) return;
+
+	const wordToReactTo1 = "movag";
+	const wordToReactTo2 = "metin";
+
+	// bot reacts/replies to messages containing the words above
+	if(message.content.toLowerCase().includes(wordToReactTo1)){
+		message.react(clbot.emojis.get("639186943590006825"));
+	}
+	if(message.content.toLowerCase().includes(wordToReactTo2)){
+		message.react(clbot.emojis.get("639186943590006825"));
+	}
+
+	// delete messages in #story containing more than one word
+	const StoryChannel = message.guild.channels.get("id", 453514739595739136)
+	const cmonBruh = message.guild.emojis.find(emoji => emoji.name === "cmonBruh");
+	if(!StoryChannel) {
+		return;
+	}else{
+		if(message.content.includes(" ") || message.content.length > 20){
+			// message.channel.bulkDelete(1, true).catch(err => {
+			// 	console.error(err);
+			// });
+			message.reply(`Invalid message ${cmonBruh}`)
+			.then(msg => {
+				msg.delete(10000)
+
+			})
+			.catch(err => {
+				console.error(err);
+			});
+		}
+	}
+
+	
 
 
 
