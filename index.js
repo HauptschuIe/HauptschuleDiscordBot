@@ -39,24 +39,24 @@ const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith(
 for(const file of commandFiles){
     const command = require(`./commands/${file}`);
  
-    bot.commands.set(command.name, command);
+    clbot.commands.set(command.name, command);
 }
  
-bot.on('ready', () => {
+clbot.on('ready', () => {
     console.log("The bot is active and ready to go!");
 });
  
-bot.on('message', message => {
+clbot.on('message', message => {
     let args = message.content.substring(PREFIX.length).split(" ");
  
     switch (args[0]) {
  
         case "ping":
-            bot.commands.get('ping').execute(message, args);
+            clbot.commands.get('ping').execute(message, args);
         break;
  
         case "hello":
-            bot.commands.get('hello').execute(message, args);
+            clbot.commands.get('hello').execute(message, args);
         break;
     }
  
