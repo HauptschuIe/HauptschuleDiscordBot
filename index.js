@@ -89,20 +89,16 @@ clbot.on('message', message => {
 
 		let args = message.content.substring(PREFIX.length).split(" ");
 
-		switch(args[0]){
-			case "ping":
-				clbot.commands.get('avatar').execute(message, args);
+		const command = args.shift().toLowerCase();
+
+		if (!clbot.commands.has(command)) return;
+
+		try {
+			clbot.commands.get(command).execute(message, args);
+		} catch (error) {
+			console.error(error);
+			message.reply('there was an error trying to execute that command!');
 		}
-//		const command = args.shift().toLowerCase();
-
-//		if (!clbot.commands.has(command)) return;
-
-//		try {
-//			clbot.commands.get(command).execute(message, args);
-//		} catch (error) {
-//			console.error(error);
-//			message.reply('there was an error trying to execute that command!');
-//		}
 	});
 
 	// Log our bot in using the token from https://discordapp.com/developers/applications/me
