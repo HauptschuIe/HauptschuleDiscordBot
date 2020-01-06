@@ -86,12 +86,16 @@ clbot.on('message', message => {
 
 	const wordToReactTo1 = "movag";
 	const wordToReactTo2 = "metin";
+	const wordToReactTo3 = "boomer";
 
 	// bot reacts/replies to messages containing the words above
 	if(message.content.toLowerCase().includes(wordToReactTo1)){
 		message.react(clbot.emojis.get("639186943590006825"));
 	}
 	if(message.content.toLowerCase().includes(wordToReactTo2)){
+		message.react(clbot.emojis.get("639186943590006825"));
+	}
+	if(message.content.toLowerCase().includes(wordToReactTo3)){
 		message.react(clbot.emojis.get("639186943590006825"));
 	}
 
