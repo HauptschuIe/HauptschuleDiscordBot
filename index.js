@@ -89,10 +89,10 @@ clbot.on('message', message => {
 
 	// bot reacts/replies to messages containing the words above
 	if(message.content.toLowerCase().includes(wordToReactTo1)){
-		message.react(clbot.emojis.get("555480363351146530"));
+		message.react(clbot.emojis.get("639186943590006825"));
 	}
 	if(message.content.toLowerCase().includes(wordToReactTo2)){
-		message.react(clbot.emojis.get("518878496546881557"));
+		message.react(clbot.emojis.get("639186943590006825"));
 	}
 
 	// delete messages in #story containing more than one word
