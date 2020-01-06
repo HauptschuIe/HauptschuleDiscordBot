@@ -51,8 +51,8 @@ clbot.on('message', message => {
  
     switch (args[0]) {
  
-        case "ping":
-            clbot.commands.get('ping').execute(message, args);
+        case "avatar":
+            clbot.commands.get('avatar').execute(message, args);
         break;
  
         case "hello":
