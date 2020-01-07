@@ -22,12 +22,12 @@ module.exports = {
                message.channel.send("📝" + "**" + msgArgs + "**").then(messageReaction => {
                    messageReaction.react("👍")
                    messageReaction.react("👎")
-                   
+
                    message.delete(3000).catch(console.error)
                });
-               break;
+               
              
           }
-        
+          break;
 	},
 };
