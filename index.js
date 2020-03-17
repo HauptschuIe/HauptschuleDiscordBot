@@ -12,8 +12,6 @@ const token = process.env.token;
 var array1 = ["thats jew",
 "kill jew",
 "jew kill",
-"cunt",
-"motherfucker",
 "jew kill",
 "real golam",
 "real golaam",
@@ -23,8 +21,7 @@ var array1 = ["thats jew",
 "kike",
 "nigga",
 "niggar",
-"jewkiller",
-"testword123"];
+"jewkiller"];
 const set2 = new Set([
 	"golam",
 	"golaam",
