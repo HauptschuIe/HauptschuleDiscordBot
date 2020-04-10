@@ -85,6 +85,10 @@ clbot.on('message', message => {
 		message.react(clbot.emojis.get("696775593467052163"));
 	}
 	
+	if (message.author.id === "133249411303211008") {
+		message.react(clbot.emojis.get("696775593467052163"));
+	}
+	
 	const wordToReactTo1 = "movag";
 	const wordToReactTo2 = "metin";
 	const wordToReactTo3 = "boomer";
